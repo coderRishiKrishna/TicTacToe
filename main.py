@@ -1,4 +1,4 @@
-def sum(a, b, c):
+def check_sum(a, b, c):
     return a+ b+ c
 
 def game_board(rState, kState):
@@ -18,21 +18,21 @@ def game_board(rState, kState):
     print(f"{six} | {seven} | {eight} ") 
 
 
-def checkWin(rState, kState):
+def check_win(rState, kState):
     wins = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]]
     for win in wins:
-        if(sum(rState[win[0]], rState[win[1]], rState[win[2]]) == 3):
+        if(check_sum(rState[win[0]], rState[win[1]], rState[win[2]]) == 3):
             print("R Won the match")
             return 1
-        if(sum(kState[win[0]], kState[win[1]], kState[win[2]]) == 3):
+        if(check_sum(kState[win[0]], kState[win[1]], kState[win[2]]) == 3):
             print("K Won the match")
             return 0
     return -1
 
 
 if __name__ == "__main__":
-    rState = [0, 0, 0, 0, 0, 0, 0, 0, 0]
-    kState = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    rState = [0]*9
+    kState = [0]*9
     print("Let's play tic-tac-toe Game")
     turn = 1 # 1 for R and 0 for K
 
@@ -46,7 +46,7 @@ if __name__ == "__main__":
             print("K's Chance")
             value = int(input("Please enter a value: "))
             kState[value] = 1
-        cwin = checkWin(rState, kState)
+        cwin = check_win(rState, kState)
         if(cwin != -1):
             print("Match over")
             break
