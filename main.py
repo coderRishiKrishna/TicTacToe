@@ -30,38 +30,45 @@ def check_win(rState: list[int], kState: list[int]) -> int:
 
 
 if __name__ == "__main__":
-    rState = [0]*9
-    kState = [0]*9
     print("Let's play tic-tac-toe Game")
-    turn = 1 # 1 for R and 0 for K
+
+    while True:
+        rState = [0]*9
+        kState = [0]*9
+        turn = 1 # 1 for R and 0 for K
 
 
-    while(True):
-        game_board(rState, kState)
-        print("R's chance" if turn ==1 else "K's chance")
-        try:
-            value = int(input("Please enter a value (0-8):"))
-            if value < 0 or value > 8:
-                print("Invalid position! Enter a number between 0 to 8.")
-                continue
-            if rState[value] == 0 and kState[value] == 0:
-                if turn == 1:
-                    rState[value] = 1
+        while(True):
+            game_board(rState, kState)
+            print("R's chance" if turn ==1 else "K's chance")
+            try:
+                value = int(input("Please enter a value (0-8):"))
+                if value < 0 or value > 8:
+                    print("Invalid position! Enter a number between 0 to 8.")
+                    continue
+                if rState[value] == 0 and kState[value] == 0:
+                    if turn == 1:
+                        rState[value] = 1
+                    else:
+                        kState[value] = 1
                 else:
-                    kState[value] = 1
-            else:
-                print("Position already occupied! choose another one.")
+                    print("Position already occupied! choose another one.")
+                    continue
+            except ValueError:
+                print("Invalid input! Enter a integer between 0 to 8.")
                 continue
-        except ValueError:
-            print("Invalid input! Enter a integer between 0 to 8.")
-            continue
-        
-        cwin = check_win(rState, kState)
-        if(cwin != -1):
-            print("Match over")
+            
+            cwin = check_win(rState, kState)
+            if(cwin != -1):
+                print("Match over")
+                break
+            if sum(rState) + sum(kState) == 9:
+                print("It's a draw!")
+                print("Match over")
+                break
+            turn = 1 - turn
+
+        play_again = input("You want to play again -> Enter (y/n):").lower()
+        if play_again != 'y':
+            print("Thanks for playing.")
             break
-        if sum(rState) + sum(kState) == 9:
-            print("It's a draw!")
-            print("Match over")
-            break
-        turn = 1 - turn
