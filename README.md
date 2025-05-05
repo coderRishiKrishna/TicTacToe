@@ -61,8 +61,6 @@ An interactive **Tic Tac Toe** game built with **Python** and **PyQt5**. This ve
 
 1. Ensure **Python 3** is installed.
 2. Save the console version as `tic_tac_toe.py`.
-3. Run it via terminal: ```bash  python tic_tac_toe.py
-
 
 
 ### GUI Version
@@ -70,6 +68,9 @@ An interactive **Tic Tac Toe** game built with **Python** and **PyQt5**. This ve
 1. Ensure **PyQt5** is installed
 2. Save the gui version as `tic_tac_toe_gui.py`.
 3. Run it via terminal:
+
+```bash  
+    python tic_tac_toe.py
 
 ```bash
     python tic_tac_toe_gui.py
