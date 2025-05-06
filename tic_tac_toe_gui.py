@@ -1,5 +1,6 @@
 import sys 
-from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QMessageBox, QGridLayout, QLabel, QVBoxLayout
+from PyQt6.QtWidgets import QApplication, QWidget, QPushButton, QMessageBox, QGridLayout, QLabel, QVBoxLayout
+from PyQt6.QtCore import Qt
 
 class TicTacToe(QWidget): 
     def __init__(self): 
@@ -13,7 +14,7 @@ class TicTacToe(QWidget):
         self.x_wins = 0
         self.o_wins = 0
         self.score_label = QLabel("Score -> X : 0 | O : 0")
-        self.score_label.setStyleSheet("font-size: 14px; font-weight: bold; color: orange")
+        self.score_label.setStyleSheet("font-size: 18px; font-weight: bold; color: orange")
 
         self.layout = QVBoxLayout()
         self.info_label = QLabel("X's Turn")
@@ -25,7 +26,7 @@ class TicTacToe(QWidget):
         self.layout.addWidget(self.score_label)
         self.layout.addLayout(self.grid_layout)
         self.setLayout(self.layout)
-        self.setStyleSheet("background-color: lightblue;")
+        self.setStyleSheet("background-color: black;")
 
     def initUI(self):
         for idx in range(9):
@@ -43,12 +44,12 @@ class TicTacToe(QWidget):
         if self.turn == 1:
             self.xState[index] = 1
             self.buttons[index].setText("X")
-            self.buttons[index].setStyleSheet("background-color: orange; color: white;")
+            self.buttons[index].setStyleSheet("background-color: orange; color: white; font-size: 24px; font-weight: bold;")
             self.info_label.setText("O's Turn")
         else:
             self.zState[index] = 1
             self.buttons[index].setText("O")
-            self.buttons[index].setStyleSheet("background-color: green; color: white;")
+            self.buttons[index].setStyleSheet("background-color: green; color: white; font-size: 24px; font-weight: bold;")
             self.info_label.setText("X's Turn")
 
         result = self.check_win()
@@ -79,8 +80,8 @@ class TicTacToe(QWidget):
         return -1
 
     def ask_replay(self):
-        reply = QMessageBox.question(self, "Play Again", "Do you want to play again?", QMessageBox.Yes | QMessageBox.No)
-        if reply == QMessageBox.Yes:
+        reply = QMessageBox.question(self, "Play Again", "Do you want to play again?", QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No)
+        if reply == QMessageBox.StandardButton.Yes:
             self.reset_game()
         else:
             QApplication.quit()
@@ -92,11 +93,11 @@ class TicTacToe(QWidget):
         self.info_label.setText("X's Turn")
         for idx in range(9):
             self.buttons[idx].setText(str(idx))
-            self.buttons[idx].setStyleSheet("")
+            self.buttons[idx].setStyleSheet("font-size: 18px; font-weight: bold;")
         
 
 if __name__ == '__main__':
     app = QApplication(sys.argv) 
     window = TicTacToe() 
     window.show() 
-    sys.exit(app.exec_())
+    sys.exit(app.exec())
