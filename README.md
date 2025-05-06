@@ -2,14 +2,14 @@
 
 This project contains two implementations of the classic **Tic Tac Toe** game:
 - A **Console-based version** for terminal play.
-- A **GUI-based version** using **PyQt5** for a graphical experience.
+- A **GUI-based version** using **PyQt6** for a graphical experience.
 
 ---
 
 ##  Contents
 
 - [Console Version](#-tic-tac-toe---console-game)
-- [GUI Version](#-tic-tac-toe--pyqt5-gui-version)
+- [GUI Version](#-tic-tac-toe--pyqt6-gui-version)
 - [Game Rules](#-game-rules)
 - [Run Instructions](#-how-to-run)
 
@@ -29,9 +29,9 @@ This is a simple command-line implementation of the classic **Tic Tac Toe** game
 
 ---
 
-##  Tic Tac Toe – PyQt5 GUI Version
+##  Tic Tac Toe – PyQt6 GUI Version
 
-An interactive **Tic Tac Toe** game built with **Python** and **PyQt5**. This version features a clean and colorful interface, real-time scoring, and popup messages.
+An interactive **Tic Tac Toe** game built with **Python** and **PyQt6**. This version features a clean and colorful interface, real-time scoring, and popup messages.
 
 ###  Features
 
@@ -67,7 +67,7 @@ An interactive **Tic Tac Toe** game built with **Python** and **PyQt5**. This ve
 
 ### GUI Version
 
-1. Ensure **PyQt5** is installed
+1. Ensure **PyQt6** is installed
 2. Save the gui version as `tic_tac_toe_gui.py`.
 3. Run it via terminal:
 
